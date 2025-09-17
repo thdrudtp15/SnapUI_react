@@ -1,4 +1,6 @@
-// CSS 주석을 제거
 export function uncommentCss(cssString: string) {
-    return cssString.replace(/\/\*\s*([\s\S]*?)\s*\*\//g, (_, inner) => inner.trim());
+    return cssString.replace(
+        /\/\*\s*EXTRACTED-CSS-START\s*([\s\S]*?)\s*EXTRACTED-CSS-END\s*\*\//g,
+        (_, inner) => '\n' + inner + '\n'
+    );
 }

@@ -1,19 +1,21 @@
+import postcss from 'postcss';
+
 export function extractCSSRules(cssString: string, selectors: string[]) {
-    const regex = /([.#]?[a-zA-Z0-9_():\-]+(?:\s*,\s*[.#]?[a-zA-Z0-9_():\-]+)*)\s*\{([\s\S]*?)\}/g;
+    const root = postcss.parse(cssString);
 
-    return cssString?.replace(regex, (match, selector) => {
-        // 주석 블록은 그대로 반환
-        if (/^\/\*[\s\S]*\*\/$/.test(match.trim())) {
-            return match;
-        }
+    root.walkRules((rule) => {
+        const selList = rule.selector.split(',').map((s) => s.replace(/\/\*[\s\S]*?\*\//g, '').trim());
 
-        const selList = selector.split(',').map((s: string) => s.trim());
-        const keep = selList.some((s: string) => {
-            // pseudo-class(:hover, :active 등) 제거 후 기본 클래스/아이디로 비교
-            const base = s.split(':')[0];
-            return selectors.includes(base);
+        const keep = selList.some((s) => {
+            const base = s.split(':')[0].trim();
+            const first = base.split(/\s+/)[0];
+            return selectors.includes(first);
         });
 
-        return keep ? match : `/* ${match} */`;
+        if (!keep) {
+            rule.replaceWith(postcss.comment({ text: `EXTRACTED-CSS-START\n${rule.toString()}\nEXTRACTED-CSS-END` }));
+        }
     });
+
+    return root.toString();
 }

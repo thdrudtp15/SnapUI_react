@@ -7,12 +7,16 @@ import { scopeCSS } from '../utils/scopeCss';
 import styles from './Render.module.css';
 import getDecodedValue from '../utils/getDecodedValue';
 
+import { tutorialCss } from '../constants/tutorialCss';
+import { tutorialHtml } from '../constants/tutorialHtml';
 const Render = ({ isEdit }: { isEdit: boolean }) => {
     const [searchParams] = useSearchParams();
 
+    const tutorial = searchParams.get('html') === 'tutorial';
+
     const bg = searchParams.get('bg') || '#ffffff';
-    const html = getDecodedValue(searchParams.get('html') || '');
-    const css = getDecodedValue(searchParams.get('css') || '');
+    const html = tutorial ? tutorialHtml : getDecodedValue(searchParams.get('html') || '');
+    const css = tutorial ? tutorialCss : getDecodedValue(searchParams.get('css') || '');
 
     const [selectTag, setSelectTag] = useState<HTMLElement | null>(null);
     const ref = useRef<HTMLDivElement | null>(null);

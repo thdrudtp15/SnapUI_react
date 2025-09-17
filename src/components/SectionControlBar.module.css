@@ -3,7 +3,7 @@
     height: 100%;
     width: 6px;
     background-color: var(--border);
-    z-index: 9999;
+    /* z-index: 999; */
     top: 0;
     right: 0%;
     transform: translate(50%, 0%);

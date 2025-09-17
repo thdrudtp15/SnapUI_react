@@ -16,6 +16,7 @@
     /* justify-content: center; */
     align-items: center;
     flex-direction: column;
+    user-select: none;
 }
 .editor_wrap {
     flex: 1;

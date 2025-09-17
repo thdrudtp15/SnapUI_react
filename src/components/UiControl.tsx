@@ -66,7 +66,7 @@ const UiControl = ({ selectTag, enable }: { selectTag: HTMLElement | null; enabl
                 className="_ui-controller_35zg45_34"
                 language="css"
                 theme="vs-dark"
-                height={300}
+                height={`calc(100vh - 107.38px)`}
                 value={extractCss}
                 onChange={(e) => setValue(e || '')}
                 onMount={handleMount}
