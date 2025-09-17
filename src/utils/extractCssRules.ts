@@ -1,7 +1,7 @@
 export function extractCSSRules(cssString: string, selectors: string[]) {
     const regex = /([.#]?[a-zA-Z0-9_():\-]+(?:\s*,\s*[.#]?[a-zA-Z0-9_():\-]+)*)\s*\{([\s\S]*?)\}/g;
 
-    return cssString?.replace(regex, (match, selector, body) => {
+    return cssString?.replace(regex, (match, selector) => {
         // 주석 블록은 그대로 반환
         if (/^\/\*[\s\S]*\*\/$/.test(match.trim())) {
             return match;
