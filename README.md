@@ -1,69 +1,61 @@
-# React + TypeScript + Vite
+# 📝 SNAP UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+URL 쿼리 파라미터를 이용하여 간단한 HTML 및 CSS를 공유할 수 있는 프로젝트입니다.
+친한 형 디자이너 형님과 프로젝트를 진행하면서 피그마에서는 확인할 수 없던 부가적인 css기능들을
+쉽게 공유하고 피드백 받기 위해서 만들게 되었습니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 배포 링크
 
-## Expanding the ESLint configuration
+- [https://your-blog.vercel.app](https://your-blog.vercel.app)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ 주요 기능
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- 📖 코드 에디터 기능(html, css)
+- 🔍 코드 기반 렌더링
+- ⭐ 적용된 CSS 스타일만 볼 수 있는 highlight style 기능
+- 📱 쿼리 파라미터 압축
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ 기술 스택
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Category  | Tech                                          |
+| --------- | --------------------------------------------- |
+| Frontend  | React, JavaScript, TypeScript                 |
+| Libraries | @monaco-editor/react, prettier, dompurify, 등 |
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 📝 특징
+
+- **서버리스 프로젝트**: 서버 없이 쿼리파라미터가 데이터베이스를 대체합니다. 로그인이 필요 없습니다.
+
+- **URL 쿼리 파라미터 압축**: LZString 라이브러리를 이용해 길어질 수 있는 html코드와 css 코드를 최대한 압축하였습니다. 더 많은 코드를 입력할 수 있습니다.
+
+- **코드 포메팅**: monaco-editor와 prettier 라이브러리를 조합하여 최대한 vscode 환경과 비슷하게 구현하려 노력했습니다.
+
+- **적용된 CSS 스타일만 볼 수 있는 하이라이팅 기능**: 특정 기능을 통하여 html 요소 클릭 시 적용된 CSS 스타일만을 보여주는 하이라이팅 기능을 적용하였습니다.
+
+---
+
+## 📚 배운 점
+
+- **정규식의 활용성**: CSS 하이라이트 기능의 경우 정규식을 이용하여 로직을 구성하였습니다. 이 로직을 구현하면서
+  정규식의 강력함을 느낄 수 있었고, 정규식에 담긴 여러 기능들을 확인하고 활용할 수 있었습니다.
+
+---
+
+## 🧩 어려웠던 점
+
+- **CSS하이라이팅 기능**: 초기에는 CSS 스타일을 추적하고, 프로그레스 바나 별도의 인풋을 이용하여 CSS 지식이 없는 사람도 스타일 조정을 할 수 있게끔 만들고 싶었습니다. 하지만 워낙 CSS 속성의 개수가 많고 로직 또한 너무 복잡하여, 현재 기능을 생각하게 되었는데 처음에는 CSS 클래스, id, 셀렉터를 오브젝트 형태로 만들어 제어 하려고 했습니다만 동일한 KEY가 들어올 수 없는 오브젝트 자료형의 한계로 꽤 많은 시간을 고민했습니다,ㅣ.
+
+- **TOC 구현**: JavaScript만으로 구현 시 불필요한 스타일 적용 문제가 발생해 `DOMParser`를 활용, 마크다운에서 필요한 데이터만 추출하는 방식으로 개선했습니다.
+
+# 유의 사항
+
+원래는 NEXT.js 로 진행했던 프로젝트를 react로 변경한 레포지토리입니다. 그러한 이유로 커밋 및 푸시 수가 매우 적은데
+이전 커밋 및 푸시를 확인하시려면 []()로 가시면 커밋 히스토리를 보실 수 있습니다!

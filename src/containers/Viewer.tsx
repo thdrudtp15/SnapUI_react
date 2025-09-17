@@ -7,6 +7,7 @@ import Render from '../components/Render';
 import { LuMousePointerClick } from 'react-icons/lu';
 
 import styles from './Viewer.module.css';
+import Copy from '../components/Copy';
 
 const Viewer = () => {
     const [isEdit, setIsEdit] = useState(false);
@@ -22,6 +23,7 @@ const Viewer = () => {
                     Highlight Styles
                 </button>
                 <BgColorPicker />
+                <Copy />
             </ActionPanel>
             <Render isEdit={isEdit} />
         </div>

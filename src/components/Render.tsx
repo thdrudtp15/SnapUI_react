@@ -10,7 +10,7 @@ import getDecodedValue from '../utils/getDecodedValue';
 const Render = ({ isEdit }: { isEdit: boolean }) => {
     const [searchParams] = useSearchParams();
 
-    const bg = getDecodedValue(searchParams.get('bg') || '#ffffff');
+    const bg = searchParams.get('bg') || '#ffffff';
     const html = getDecodedValue(searchParams.get('html') || '');
     const css = getDecodedValue(searchParams.get('css') || '');
 
