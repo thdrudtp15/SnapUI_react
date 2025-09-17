@@ -1,0 +1,7 @@
+.renderer {
+    overflow: auto;
+    padding: 0 0.2rem;
+    flex: 1;
+    color: black;
+    background-color: #ffffff; /* 기본 배경 */
+}

@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Anton';
+    src: url('./assets/fonts/Anton-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --border: #3c3c3c;
+    --background: #1e1e1e;
+    --foreground: #eeeeee;
+    --editor-bg: #282c34;
+    --hover-bg: #6e6e6e;
+    --muted: #a7a7a7;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    min-width: 1240px;
+    min-height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.app_container {
+    display: flex;
+}
+
+.cm-content {
+    font-family: 'JetBrains Mono' !important;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.cm-scroller {
+    flex: 1;
+    padding-left: 1rem;
+    /* height: calc(100vh - 100px) !important; */
+    background-color: var(--editor-bg);
+}
+
+.cm-scroller:focus {
+    border-bottom: none;
+}
+
+.cm-gutter {
+    font-size: 0.765rem;
+    font-family: 'JetBrains Mono' !important;
+}
+
+.pre {
+    font-family: sans-serif;
+}

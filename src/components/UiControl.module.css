@@ -1,0 +1,14 @@
+.controller {
+    position: fixed;
+    top: 107px;
+    right: 0; /* 화면 안쪽 기준 */
+    width: 300px;
+    height: fit-content;
+    z-index: 9999;
+    transition: transform 0.3s ease;
+    transform: translateX(100%); /* 화면 밖 */
+}
+
+.controller.enable {
+    transform: translateX(0); /* 화면 안쪽 */
+}

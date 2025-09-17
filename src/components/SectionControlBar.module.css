@@ -1,0 +1,11 @@
+.controlBar {
+    position: absolute;
+    height: 100%;
+    width: 6px;
+    background-color: var(--border);
+    z-index: 9999;
+    top: 0;
+    right: 0%;
+    transform: translate(50%, 0%);
+    cursor: col-resize;
+}
