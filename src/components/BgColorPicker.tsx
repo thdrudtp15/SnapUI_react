@@ -10,14 +10,15 @@ const BgColorPicker = () => {
 
     const ref = useRef(null);
 
+    const tutorial = searchParams.get('html') === 'tutorial';
+
     const [isEnable, setIsEnable] = useState(false);
-    const [bgHex, setBgHex] = useState(searchParams.get('bg') || '#ffffff');
+    const [bgHex, setBgHex] = useState(tutorial ? '#202020' : searchParams.get('bg') || '#ffffff');
 
     useOnClickOutside({ ref: ref, onClickOutside: () => setIsEnable(false) });
 
     useEffect(() => {
         if (!isEnable) return;
-
         const STO = setTimeout(() => {
             setSearchParams((prev) => ({ ...Object.fromEntries(prev), bg: bgHex }));
         }, 300);

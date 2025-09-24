@@ -17,5 +17,11 @@ export function extractCSSRules(cssString: string, selectors: string[]) {
         }
     });
 
+    root.walkAtRules((atrule) => {
+        if (atrule.name === 'keyframes' || atrule.name === 'font-face') {
+            atrule.remove();
+        }
+    });
+
     return root.toString();
 }

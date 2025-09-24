@@ -20,6 +20,7 @@ function App() {
                 {
                     html: LzString.compressToEncodedURIComponent(tutorialHtml),
                     css: LzString.compressToEncodedURIComponent(tutorialCss),
+                    bg: '#202020',
                 },
                 { replace: true }
             );
