@@ -93,8 +93,9 @@ const Render = ({ isEdit }: { isEdit: boolean }) => {
         <>
             <div className={styles.renderer} ref={ref}>
                 <div
+                    className={styles.con}
                     id={`preview_wrap__x9zq8_vn3l0`}
-                    style={{ backgroundColor: bg, minHeight: '100%' }}
+                    style={{ backgroundColor: bg }}
                     dangerouslySetInnerHTML={{
                         __html: `${html || '<div id="_656d707479">HTML을 입력해주세요.</div>'}`,
                     }}

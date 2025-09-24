@@ -1,7 +1,11 @@
 .renderer {
-    overflow: auto;
     padding: 0 0.2rem;
     flex: 1;
     color: black;
     background-color: #ffffff;
+}
+
+.con {
+    height: calc(100vh - 107.38px);
+    overflow-y: scroll;
 }

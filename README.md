@@ -21,10 +21,10 @@ URL 쿼리 파라미터를 이용하여 간단한 HTML 및 CSS를 공유할 수 
 
 ## 🛠️ 기술 스택
 
-| Category  | Tech                                          |
-| --------- | --------------------------------------------- |
-| Frontend  | React, JavaScript, TypeScript                 |
-| Libraries | @monaco-editor/react, prettier, dompurify, 등 |
+| Category  | Tech                                                   |
+| --------- | ------------------------------------------------------ |
+| Frontend  | React, JavaScript, TypeScript                          |
+| Libraries | @monaco-editor/react, prettier, dompurify, LZString 등 |
 
 ---
 
