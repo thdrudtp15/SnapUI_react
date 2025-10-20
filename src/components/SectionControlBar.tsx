@@ -15,7 +15,7 @@ const SectionControlBar = ({ targetRef }: Props) => {
         e.preventDefault();
         const { clientX } = e;
 
-        if (!click.current || clientX < 250 || clientX > 400 || !targetRef.current) return;
+        if (!click.current || clientX < 250 || clientX > 1024 || !targetRef.current) return;
         targetRef.current.style.width = `${clientX}px`;
     };
 

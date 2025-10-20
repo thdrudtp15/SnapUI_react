@@ -8,6 +8,7 @@ import { extractCSSRules } from '../utils/extractCssRules';
 import { uncommentCss } from '../utils/uncommentCss';
 import useUpdateQeryParams from '../hooks/useUpdateQueryParams';
 import { format } from '../utils/editor';
+import { DEBOUNCE_DELAY } from '../constants/config';
 
 import styles from './UiControl.module.css';
 
@@ -52,7 +53,7 @@ const UiControl = ({ selectTag, enable }: { selectTag: HTMLElement | null; enabl
     useEffect(() => {
         const STO = setTimeout(() => {
             update({ key: 'css', value: uncommentCss(value) });
-        }, 300);
+        }, DEBOUNCE_DELAY);
 
         return () => {
             clearTimeout(STO);

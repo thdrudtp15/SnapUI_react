@@ -7,7 +7,7 @@ const useUpdateQueryParams = () => {
     // LZString 압축 인코딩
     const update = ({ key, value }: { key: string; value: string }) => {
         const encodedValue = LzString.compressToEncodedURIComponent(value);
-        setSearchParams((prev) => ({ ...Object.fromEntries(prev), [key]: encodedValue }));
+        setSearchParams((prev) => ({ ...Object.fromEntries(prev), [key]: encodedValue }), { replace: true });
     };
 
     return {

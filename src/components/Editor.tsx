@@ -6,7 +6,7 @@ import getDecodedValue from '../utils/getDecodedValue';
 import useUpdateQeryParams from '../hooks/useUpdateQueryParams';
 
 import { format } from '../utils/editor';
-
+import { DEBOUNCE_DELAY } from '../constants/config';
 const DashBoardEditor = ({ lang, enable }: { lang: 'html' | 'css'; enable: boolean }) => {
     const [searchParams] = useSearchParams();
     const [value, setValue] = useState('');
@@ -32,7 +32,7 @@ const DashBoardEditor = ({ lang, enable }: { lang: 'html' | 'css'; enable: boole
     useEffect(() => {
         const STO = setTimeout(() => {
             update({ key: lang, value });
-        }, 300);
+        }, DEBOUNCE_DELAY);
 
         return () => clearTimeout(STO);
     }, [value]);

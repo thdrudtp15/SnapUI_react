@@ -4,6 +4,7 @@ import styles from './BgColorPicker.module.css';
 import { HexColorPicker } from 'react-colorful';
 import useOnClickOutside from '../hooks/useClickOutside';
 import { useSearchParams } from 'react-router';
+import { DEBOUNCE_DELAY } from '../constants/config';
 
 const BgColorPicker = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -21,7 +22,7 @@ const BgColorPicker = () => {
         if (!isEnable) return;
         const STO = setTimeout(() => {
             setSearchParams((prev) => ({ ...Object.fromEntries(prev), bg: bgHex }));
-        }, 300);
+        }, DEBOUNCE_DELAY);
 
         return () => clearTimeout(STO);
     }, [bgHex]);
