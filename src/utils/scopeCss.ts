@@ -41,7 +41,8 @@ export const scopeCSS = (css: string, scopeSelector = '.preview') => {
         return root.toString();
     } catch (error) {
         console.error('scopeCSS 파싱 오류:', error);
-        // 파싱 실패 시 원본 반환
-        return css;
+        // 파싱 실패 시 안전하게 빈 문자열 반환 (전역 오염 방지)
+        // 사용자에게 에러 메시지 표시
+        return `/* ⚠️ CSS 파싱 오류: 스타일을 적용할 수 없습니다.\n오류 내용: ${error instanceof Error ? error.message : 'Unknown error'}\n\n원본 CSS는 보안상 렌더링되지 않았습니다. */`;
     }
 };

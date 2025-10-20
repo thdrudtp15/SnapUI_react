@@ -109,18 +109,14 @@ const Render = ({ isEdit }: { isEdit: boolean }) => {
                             mix-blend-mode: difference; 
                         }
               
-                        #preview_wrap__x9zq8_vn3l0 .highlight-for-mode  {
-                            position: relative; 
-                           
-                        }
-                            
                         #preview_wrap__x9zq8_vn3l0 .highlight-for-mode::after {
                             content: '';
                             position: absolute;
                             top: 0; left: 0; right: 0; bottom: 0;
-                            border: 3px dotted black;
-                            pointer-events: none; 
-                            box-sizing: border-box;
+                            outline: 3px dotted rgba(0, 0, 0, 0.8);
+                            outline-offset: -3px;
+                            pointer-events: none;
+                            z-index: 9999;
                         }
     
                         ${scopeCSS(css, '#preview_wrap__x9zq8_vn3l0') || ''}`}

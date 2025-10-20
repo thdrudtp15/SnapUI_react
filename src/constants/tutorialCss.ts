@@ -1,138 +1,137 @@
 export const tutorialCss = `
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  animation: fadeInUp 0.8s
-    ease-out;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+section {
+  width: 25%;
+  height: 100vh;
+  transition: 0.5s;
+  position: relative;
+  padding: 1rem;
+  overflow: hidden;
+  color: white;
 }
 
-h1 {
-  text-align: center;
-  font-size: 3.5rem;
-  font-weight: 700;
+section:nth-child(1) {
   background: linear-gradient(
-    45deg,
-    #ff6b6b,
-    #4ecdc4,
-    #45b7d1,
-    #96ceb4,
-    #feca57,
-    #ff9ff3,
-    #54a0ff
+    135deg,
+    #8b5cf6 0%,
+    #a78bfa 100%
   );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 20px;
-  text-shadow: 0 0 30px
-    rgba(255, 255, 255, 0.3);
-  letter-spacing: -1px;
+}
+section:nth-child(2) {
+  background: linear-gradient(
+    135deg,
+    #ec4899 0%,
+    #f472b6 100%
+  );
+}
+section:nth-child(3) {
+  background: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #60a5fa 100%
+  );
+}
+section:nth-child(4) {
+  background: linear-gradient(
+    135deg,
+    #10b981 0%,
+    #34d399 100%
+  );
 }
 
-.description {
-  text-align: center;
-  font-size: 1.2rem;
-  color: rgba(
-    255,
-    255,
-    255,
-    0.9
-  );
-  margin-bottom: 60px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.8;
-  text-shadow: 1px 1px 2px
+p {
+  font-size: 24px;
+  font-weight: bold;
+  opacity: 0;
+  transition: 0.5s;
+  position: relative;
+  top: -5%;
+}
+
+h2 {
+  transition: 0.8s;
+  position: absolute;
+  width: fit-content;
+  top: 30%;
+  left: 50%;
+  font-size: 32px;
+  white-space: nowrap;
+  transform: translate(
+      -50%,
+      -50%
+    )
+    rotate(90deg);
+  text-shadow: 0 2px 10px
     rgba(0, 0, 0, 0.2);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(
-    2,
-    minmax(280px, 1fr)
-  );
-  gap: 30px;
-  margin-top: 40px;
+span {
+  position: absolute;
+  padding: 16px;
+  top: 30%;
+  font-size: 20px;
+  opacity: 0;
+  text-shadow: 0 2px 10px
+    rgba(0, 0, 0, 0.6);
 }
 
-.grid-item {
-  background: rgba(
-    45,
-    45,
-    45,
-    0.9
-  );
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px
-    rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  border: 1px solid
-    rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+section:hover {
+  width: calc(25% + 300px);
+}
+section:hover h2 {
+  left: 10%;
+  top: 15%;
+  transform: rotate(0deg);
+}
+section:hover p {
+  opacity: 1;
+  top: 0%;
 }
 
-.grid-item::before {
+section:hover span {
+  animation: fadeIn 1s 0.4s
+    forwards;
+}
+
+section::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
+  top: 30%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
   background: linear-gradient(
-    90deg,
-    #667eea,
-    #764ba2
+    60deg,
+    transparent,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1)
+      70%,
+    transparent 60%,
+    transparent
   );
-  transform: scaleX(0);
-  transition: transform 0.3s
-    ease;
-  transform-origin: left;
+  transform: rotate(45deg)
+    translateX(-80%);
+  transition: all 0.8s ease;
+  pointer-events: none;
 }
 
-.grid-item:hover::before {
-  transform: scaleX(1);
+section:hover::after {
+  transform: translateX(100%);
+  opacity: 0;
 }
 
-.grid-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px
-    rgba(0, 0, 0, 0.15);
-}
-
-.grid-item__title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.grid-item__title::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  background: linear-gradient(
-    135deg,
-    #667eea,
-    #764ba2
-  );
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.grid-item__description {
-  color: #cccccc;
-  line-height: 1.7;
-  font-size: 0.95rem;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 `;
