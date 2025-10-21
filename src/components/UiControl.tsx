@@ -1,5 +1,7 @@
 'use client';
-import Editor from '@monaco-editor/react';
+import { lazy } from 'react';
+
+const Editor = lazy(() => import('@monaco-editor/react'));
 import { useSearchParams } from 'react-router';
 import { useEffect, useState } from 'react';
 

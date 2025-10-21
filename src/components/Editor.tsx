@@ -1,4 +1,6 @@
-import { Editor } from '@monaco-editor/react';
+import { lazy } from 'react';
+
+const Editor = lazy(() => import('@monaco-editor/react'));
 import React, { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router';
 
